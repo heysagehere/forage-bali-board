@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forage Bali — Project Board</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -17,446 +16,206 @@
       --text: #e6edf3;
       --text-muted: #8b949e;
       --text-faint: #6e7681;
-      
-      /* Owner colors */
       --iso: #7B9E6B;
       --yuka: #E07A3D;
       --carla: #8B9DC3;
       --alex: #9B7BC3;
-      
-      /* Priority colors */
       --priority-high: #f85149;
       --priority-medium: #d29922;
       --priority-low: #6e7681;
-      
-      /* Accent */
       --accent: #58a6ff;
-      --accent-green: #3fb950;
       --gift: #f0b429;
-      
-      /* Column colors */
-      --col-up-next: #58a6ff;
-      --col-in-progress: #a371f7;
-      --col-backlog: #8b949e;
-      --col-done: #3fb950;
     }
     
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.5;
     }
     
-    /* Header */
     .header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 20px 24px;
+      padding: 16px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
     
-    .header-top {
+    .header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--iso) 0%, var(--yuka) 100%);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
+    .logo-icon { font-size: 24px; }
     
     .logo h1 {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text);
+      font-size: 18px;
+      font-weight: 600;
     }
     
     .logo span {
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-    
-    /* Milestone Banner */
-    .milestone-banner {
-      background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(163, 113, 247, 0.15) 100%);
-      border: 1px solid rgba(88, 166, 255, 0.3);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    
-    .milestone-content {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .milestone-icon {
-      font-size: 32px;
-    }
-    
-    .milestone-info h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-    }
-    
-    .milestone-info p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    
-    .countdown {
-      display: flex;
-      gap: 12px;
-    }
-    
-    .countdown-item {
-      text-align: center;
-      background: var(--surface);
-      border-radius: 8px;
-      padding: 8px 12px;
-      min-width: 60px;
-    }
-    
-    .countdown-value {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    
-    .countdown-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-    
-    /* Stats Row */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    
-    .stat-card {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 14px 16px;
-    }
-    
-    .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    
-    .stat-label {
       font-size: 12px;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-left: 8px;
     }
     
-    .stat-card.gift {
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.1) 0%, rgba(240, 180, 41, 0.05) 100%);
-      border-color: rgba(240, 180, 41, 0.3);
-    }
-    
-    .stat-card.gift .stat-value {
-      color: var(--gift);
-    }
-    
-    /* Progress Bar */
-    .progress-section {
-      margin-bottom: 20px;
-    }
-    
-    .progress-header {
+    .owner-pills {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    
-    .progress-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-    }
-    
-    .progress-percent {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent-green);
-    }
-    
-    .progress-bar {
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent-green) 0%, #56d364 100%);
-      border-radius: 4px;
-      transition: width 0.5s ease;
-    }
-    
-    /* Filters */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-    
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
       gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .owner-pill {
+      display: flex;
       align-items: center;
-    }
-    
-    .filter-label {
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 12px;
       font-size: 12px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-right: 4px;
-    }
-    
-    .filter-btn {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 13px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+    
+    .owner-pill:hover { opacity: 0.8; }
+    .owner-pill.active { border-color: white; }
+    
+    .owner-pill.all { background: var(--surface-elevated); color: var(--text-muted); }
+    .owner-pill.iso { background: rgba(123,158,107,0.2); color: var(--iso); }
+    .owner-pill.yuka { background: rgba(224,122,61,0.2); color: var(--yuka); }
+    .owner-pill.carla { background: rgba(139,157,195,0.2); color: var(--carla); }
+    .owner-pill.alex { background: rgba(155,123,195,0.2); color: var(--alex); }
+    
+    .timeline-filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    
+    .timeline-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
       font-family: inherit;
     }
     
-    .filter-btn:hover {
-      border-color: var(--accent);
-      color: var(--text);
-    }
+    .timeline-btn:hover { border-color: var(--accent); color: var(--text); }
+    .timeline-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
     
-    .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-    
-    .filter-btn.owner-iso { --owner-color: var(--iso); }
-    .filter-btn.owner-yuka { --owner-color: var(--yuka); }
-    .filter-btn.owner-carla { --owner-color: var(--carla); }
-    .filter-btn.owner-alex { --owner-color: var(--alex); }
-    
-    .filter-btn.owner-iso.active,
-    .filter-btn.owner-yuka.active,
-    .filter-btn.owner-carla.active,
-    .filter-btn.owner-alex.active {
-      background: var(--owner-color);
-      border-color: var(--owner-color);
-    }
-    
-    .filter-divider {
-      width: 1px;
-      height: 24px;
-      background: var(--border);
-      margin: 0 8px;
-    }
-    
-    /* Board */
     .board {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      padding: 24px;
-      min-height: calc(100vh - 300px);
+      gap: 12px;
+      padding: 16px;
+      min-height: calc(100vh - 100px);
     }
     
-    @media (max-width: 1200px) {
-      .board {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+    @media (max-width: 1200px) { .board { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .board { grid-template-columns: 1fr; padding: 12px; } }
     
-    @media (max-width: 768px) {
-      .board {
-        grid-template-columns: 1fr;
-        padding: 16px;
-      }
-      
-      .header {
-        padding: 16px;
-      }
-      
-      .countdown {
-        display: none;
-      }
-      
-      .stats-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    /* Column */
     .column {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
-      max-height: calc(100vh - 340px);
+      max-height: calc(100vh - 130px);
     }
     
-    @media (max-width: 768px) {
-      .column {
-        max-height: none;
-      }
-    }
+    @media (max-width: 600px) { .column { max-height: none; } }
     
     .column-header {
-      padding: 16px;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-shrink: 0;
     }
     
     .column-title {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
     }
     
     .column-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
     }
     
-    .column-dot.up-next { background: var(--col-up-next); }
-    .column-dot.in-progress { background: var(--col-in-progress); }
-    .column-dot.backlog { background: var(--col-backlog); }
-    .column-dot.done { background: var(--col-done); }
-    
-    .column-title h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-    }
+    .column-dot.up-next { background: #58a6ff; }
+    .column-dot.in-progress { background: #a371f7; }
+    .column-dot.backlog { background: #8b949e; }
+    .column-dot.done { background: #3fb950; }
     
     .column-count {
       background: var(--surface-elevated);
       color: var(--text-muted);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 10px;
+      padding: 2px 8px;
+      border-radius: 8px;
     }
     
     .column-cards {
-      padding: 12px;
+      padding: 10px;
       overflow-y: auto;
       flex: 1;
     }
     
-    .column-cards::-webkit-scrollbar {
-      width: 6px;
-    }
-    
-    .column-cards::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    .column-cards::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 3px;
-    }
-    
-    /* Card */
     .card {
       background: var(--surface-elevated);
       border: 1px solid var(--border-light);
-      border-radius: 8px;
-      padding: 12px;
+      border-radius: 6px;
+      padding: 10px 12px;
       margin-bottom: 8px;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.15s;
     }
     
     .card:hover {
       border-color: var(--border);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    
-    .card:last-child {
-      margin-bottom: 0;
     }
     
     .card.gift {
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.12) 0%, rgba(240, 180, 41, 0.04) 100%);
-      border-color: rgba(240, 180, 41, 0.4);
-    }
-    
-    .card.gift:hover {
-      border-color: var(--gift);
-      box-shadow: 0 4px 16px rgba(240, 180, 41, 0.2);
+      background: linear-gradient(135deg, rgba(240,180,41,0.12) 0%, rgba(240,180,41,0.04) 100%);
+      border-color: rgba(240,180,41,0.4);
     }
     
     .card-header {
       display: flex;
       align-items: flex-start;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     
     .priority-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       margin-top: 6px;
       flex-shrink: 0;
@@ -467,1158 +226,168 @@
     .priority-dot.low { background: var(--priority-low); }
     
     .card-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      color: var(--text);
       line-height: 1.4;
       flex: 1;
     }
     
-    .card.gift .card-title {
-      color: var(--gift);
-    }
+    .card.gift .card-title { color: var(--gift); }
     
     .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    
-    .owner-tag {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    
-    .owner-tag.iso { background: rgba(123, 158, 107, 0.2); color: var(--iso); }
-    .owner-tag.yuka { background: rgba(224, 122, 61, 0.2); color: var(--yuka); }
-    .owner-tag.carla { background: rgba(139, 157, 195, 0.2); color: var(--carla); }
-    .owner-tag.alex { background: rgba(155, 123, 195, 0.2); color: var(--alex); }
-    .owner-tag.all { background: rgba(88, 166, 255, 0.2); color: var(--accent); }
-    
-    .week-tag {
-      font-size: 11px;
-      color: var(--text-faint);
-    }
-    
-    .card-notes {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid var(--border-light);
-      line-height: 1.5;
-      display: none;
-    }
-    
-    .card.expanded .card-notes {
-      display: block;
-    }
-    
-    /* Owner Stats */
-    .owner-stats {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    
-    .owner-stat {
       display: flex;
       align-items: center;
       gap: 6px;
     }
     
-    .owner-stat-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    
-    .owner-stat-dot.iso { background: var(--iso); }
-    .owner-stat-dot.yuka { background: var(--yuka); }
-    .owner-stat-dot.carla { background: var(--carla); }
-    .owner-stat-dot.alex { background: var(--alex); }
-    
-    .owner-stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    
-    .owner-stat-count {
-      font-size: 12px;
+    .owner-tag {
+      font-size: 10px;
       font-weight: 600;
-      color: var(--text);
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
     }
     
-    /* Empty State */
-    .empty-state {
-      text-align: center;
-      padding: 32px 16px;
+    .owner-tag.iso { background: rgba(123,158,107,0.2); color: var(--iso); }
+    .owner-tag.yuka { background: rgba(224,122,61,0.2); color: var(--yuka); }
+    .owner-tag.carla { background: rgba(139,157,195,0.2); color: var(--carla); }
+    .owner-tag.alex { background: rgba(155,123,195,0.2); color: var(--alex); }
+    .owner-tag.all { background: rgba(88,166,255,0.2); color: var(--accent); }
+    
+    .week-tag {
+      font-size: 10px;
       color: var(--text-faint);
     }
     
-    .empty-state-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
+    .card-notes {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-light);
+      display: none;
     }
     
-    .empty-state-text {
-      font-size: 13px;
-    }
+    .card.expanded .card-notes { display: block; }
     
-    /* Footer */
-    .footer {
+    .empty-state {
       text-align: center;
       padding: 24px;
       color: var(--text-faint);
       font-size: 12px;
-      border-top: 1px solid var(--border);
-    }
-    
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .card {
-      animation: fadeIn 0.2s ease;
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="header-top">
+    <div class="header-row">
       <div class="logo">
-        <div class="logo-icon">🌿</div>
-        <div>
-          <h1>Forage Bali</h1>
-          <span>Project Board</span>
-        </div>
+        <span class="logo-icon">🌿</span>
+        <h1>Forage Bali</h1>
+        <span>First class: April 24</span>
       </div>
-      <div class="owner-stats" id="ownerStats"></div>
+      <div class="owner-pills" id="ownerPills"></div>
     </div>
-    
-    <div class="milestone-banner">
-      <div class="milestone-content">
-        <div class="milestone-icon">🎯</div>
-        <div class="milestone-info">
-          <h2>First Class — April 24, 2026</h2>
-          <p>Wild edibles foraging experience in Ubud</p>
-        </div>
-      </div>
-      <div class="countdown" id="countdown"></div>
-    </div>
-    
-    <div class="stats-row" id="statsRow"></div>
-    
-    <div class="progress-section">
-      <div class="progress-header">
-        <span class="progress-title">Progress to Launch</span>
-        <span class="progress-percent" id="progressPercent">0%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-      </div>
-    </div>
-    
-    <div class="filters">
-      <div class="filter-group">
-        <span class="filter-label">Team</span>
-        <button class="filter-btn active" data-filter="owner" data-value="all">All</button>
-        <button class="filter-btn owner-iso" data-filter="owner" data-value="Iso">Iso</button>
-        <button class="filter-btn owner-yuka" data-filter="owner" data-value="Yuka">Yuka</button>
-        <button class="filter-btn owner-carla" data-filter="owner" data-value="Carla">Carla</button>
-        <button class="filter-btn owner-alex" data-filter="owner" data-value="Alex">Alex</button>
-      </div>
-      
-      <div class="filter-divider"></div>
-      
-      <div class="filter-group">
-        <span class="filter-label">Timeline</span>
-        <button class="filter-btn active" data-filter="week" data-value="all">All</button>
-        <button class="filter-btn" data-filter="week" data-value="This Week">This Week</button>
-        <button class="filter-btn" data-filter="week" data-value="Month 1">Month 1</button>
-        <button class="filter-btn" data-filter="week" data-value="Month 2">Month 2</button>
-        <button class="filter-btn" data-filter="week" data-value="Month 3">Month 3</button>
-        <button class="filter-btn" data-filter="week" data-value="After April 24">Post-Launch</button>
-      </div>
+    <div class="timeline-filters" id="timelineFilters">
+      <button class="timeline-btn active" data-week="all">All</button>
+      <button class="timeline-btn" data-week="This Week">This Week</button>
+      <button class="timeline-btn" data-week="Month 1">Month 1</button>
+      <button class="timeline-btn" data-week="Month 2">Month 2</button>
+      <button class="timeline-btn" data-week="Month 3">Month 3</button>
+      <button class="timeline-btn" data-week="After April 24">Post-Launch</button>
     </div>
   </header>
   
   <main class="board" id="board"></main>
   
-  <footer class="footer">
-    <p>Built with 💚 for the Forage Bali team • <a href="https://foragebali.com" target="_blank">foragebali.com</a></p>
-  </footer>
-  
   <script>
-    // Data
-    const data = {
-  "columns": [
-    { "id": "up-next", "title": "Up Next" },
-    { "id": "in-progress", "title": "In Progress" },
-    { "id": "backlog", "title": "Backlog" },
-    { "id": "done", "title": "Done" }
-  ],
-  "owners": [
-    { "id": "iso", "name": "Iso", "color": "#7B9E6B" },
-    { "id": "yuka", "name": "Yuka", "color": "#E07A3D" },
-    { "id": "carla", "name": "Carla", "color": "#8B9DC3" },
-    { "id": "alex", "name": "Alex", "color": "#9B7BC3" }
-  ],
-  "cards": [
-    {
-      "id": "100",
-      "column": "up-next",
-      "title": "Define cancellation policy",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "How many days notice? Refund %? Rain = rain or shine (decided)",
-      "week": "This Week"
-    },
-    {
-      "id": "101",
-      "column": "up-next",
-      "title": "Test full booking flow end-to-end",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "Book as customer, verify emails, check Bokun",
-      "week": "This Week"
-    },
-    {
-      "id": "102",
-      "column": "up-next",
-      "title": "Review private events page",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "Check inquiry form works",
-      "week": "This Week"
-    },
-    {
-      "id": "103",
-      "column": "up-next",
-      "title": "Final review: Made bio + class description",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "Already on site, needs final approval",
-      "week": "This Week"
-    },
-    {
-      "id": "104",
-      "column": "up-next",
-      "title": "Mobile responsive check",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "Test site on phone",
-      "week": "This Week"
-    },
-    {
-      "id": "105",
-      "column": "up-next",
-      "title": "Research hotel pamphlet examples",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "What works for concierge handouts?",
-      "week": "This Week"
-    },
-    {
-      "id": "110",
-      "column": "up-next",
-      "title": "⚡ Finalize partnership agreement",
-      "owner": "Yuka",
-      "priority": "high",
-      "notes": "PRIORITY - 25/25/50 split, roles, responsibilities",
-      "week": "This Week"
-    },
-    {
-      "id": "111",
-      "column": "up-next",
-      "title": "Confirm meeting point for guests",
-      "owner": "Yuka",
-      "priority": "high",
-      "notes": "Ubud pickup location",
-      "week": "This Week"
-    },
-    {
-      "id": "112",
-      "column": "up-next",
-      "title": "Get transport/bus pricing",
-      "owner": "Yuka",
-      "priority": "high",
-      "notes": "14-15 person capacity, incl driver food, lead time",
-      "week": "This Week"
-    },
-    {
-      "id": "113",
-      "column": "up-next",
-      "title": "Start Instagram: 4 posts/week",
-      "owner": "Yuka",
-      "priority": "high",
-      "notes": "Starting Monday. Crosspost from ForageSF",
-      "week": "This Week"
-    },
-    {
-      "id": "114",
-      "column": "up-next",
-      "title": "Follow 10 Bali tourism accounts/day",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "Build Instagram presence",
-      "week": "This Week"
-    },
-    {
-      "id": "115",
-      "column": "up-next",
-      "title": "Print flyers for hotel visits",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "Simple one-pager with QR to book",
-      "week": "This Week"
-    },
-    {
-      "id": "120",
-      "column": "up-next",
-      "title": "Review participant waiver",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Legal review of drafted waiver",
-      "week": "This Week"
-    },
-    {
-      "id": "121",
-      "column": "up-next",
-      "title": "Set up Bokun → Google Calendar sync",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Native Bokun integration",
-      "week": "This Week"
-    },
-    {
-      "id": "122",
-      "column": "up-next",
-      "title": "Send ForageSF email announcement",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Announce Forage Bali to existing list",
-      "week": "This Week"
-    },
-    {
-      "id": "123",
-      "column": "up-next",
-      "title": "Coordinate with Yuka: what guests should bring/wear",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "For confirmation email",
-      "week": "This Week"
-    },
-    {
-      "id": "124",
-      "column": "up-next",
-      "title": "Create confirmation email template",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Include logistics: what to wear, meeting point, timeline",
-      "week": "This Week"
-    },
-    {
-      "id": "130",
-      "column": "up-next",
-      "title": "Fix WhatsApp number (deactivated)",
-      "owner": "Alex",
-      "priority": "high",
-      "notes": "Previous number got deactivated",
-      "week": "This Week"
-    },
-    {
-      "id": "131",
-      "column": "up-next",
-      "title": "SEO sweep (meta tags, OG images)",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "AI-first SEO optimization",
-      "week": "This Week"
-    },
-    {
-      "id": "132",
-      "column": "up-next",
-      "title": "Add Google Analytics",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Basic tracking",
-      "week": "This Week"
-    },
-    {
-      "id": "133",
-      "column": "up-next",
-      "title": "Hero video options",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Pan shot, people walking, woman cutting - optimize for fast load",
-      "week": "This Week"
-    },
-    {
-      "id": "200",
-      "column": "backlog",
-      "title": "Create brand guidelines doc",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "Colors, fonts, voice",
-      "week": "Month 1"
-    },
-    {
-      "id": "201",
-      "column": "backlog",
-      "title": "Create press packet",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "Story, photos, bios",
-      "week": "Month 1"
-    },
-    {
-      "id": "202",
-      "column": "backlog",
-      "title": "Write hotel pamphlet / concierge one-pager",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "PDF for hotel distribution",
-      "week": "Month 1"
-    },
-    {
-      "id": "203",
-      "column": "backlog",
-      "title": "Confirm what's included in class",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "Transport? Food? Drinks? Depends on bus pricing",
-      "week": "Month 1"
-    },
-    {
-      "id": "204",
-      "column": "backlog",
-      "title": "Build staff dashboard",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "Supabase + Vercel, mobile-first",
-      "week": "Month 2"
-    },
-    {
-      "id": "250",
-      "column": "backlog",
-      "title": "🎁 Create gift certificate / gifting flow",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "IMPORTANT: Website flow for buying classes as gifts",
-      "week": "Month 1"
-    },
-    {
-      "id": "251",
-      "column": "backlog",
-      "title": "🎁 Gift certificate design + email template",
-      "owner": "Iso",
-      "priority": "high",
-      "notes": "Beautiful PDF/email gift recipients receive",
-      "week": "Month 1"
-    },
-    {
-      "id": "210",
-      "column": "backlog",
-      "title": "Visit top hotels with flyers",
-      "owner": "Yuka",
-      "priority": "high",
-      "notes": "In-person relationship building",
-      "week": "Month 1"
-    },
-    {
-      "id": "211",
-      "column": "backlog",
-      "title": "Scout backup/additional teachers",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "For expansion",
-      "week": "Month 1-2"
-    },
-    {
-      "id": "212",
-      "column": "backlog",
-      "title": "Start bi-weekly blog posts",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "One plant + childhood memory + Balinese culture",
-      "week": "Month 1"
-    },
-    {
-      "id": "410",
-      "column": "backlog",
-      "title": "Second teacher interviews",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "For expansion",
-      "week": "Month 3"
-    },
-    {
-      "id": "411",
-      "column": "backlog",
-      "title": "Define teacher criteria",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "Knowledge, personality, language, availability",
-      "week": "Month 3"
-    },
-    {
-      "id": "412",
-      "column": "backlog",
-      "title": "Create teacher training/onboarding doc",
-      "owner": "Yuka",
-      "priority": "medium",
-      "notes": "For new teachers",
-      "week": "Month 3"
-    },
-    {
-      "id": "220",
-      "column": "backlog",
-      "title": "TripAdvisor listing",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "",
-      "week": "Month 1"
-    },
-    {
-      "id": "221",
-      "column": "backlog",
-      "title": "Google Business Profile setup",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Critical for local SEO",
-      "week": "Month 1"
-    },
-    {
-      "id": "222",
-      "column": "backlog",
-      "title": "Viator application",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "",
-      "week": "Month 1"
-    },
-    {
-      "id": "223",
-      "column": "backlog",
-      "title": "GetYourGuide application",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "",
-      "week": "Month 1"
-    },
-    {
-      "id": "224",
-      "column": "backlog",
-      "title": "Airbnb Experiences outreach",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Existing relationship",
-      "week": "Month 1"
-    },
-    {
-      "id": "225",
-      "column": "backlog",
-      "title": "Klook application",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Popular in Asia",
-      "week": "Month 1"
-    },
-    {
-      "id": "226",
-      "column": "backlog",
-      "title": "Research top 20 hotels + wellness retreats",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Create outreach list",
-      "week": "Month 1"
-    },
-    {
-      "id": "227",
-      "column": "backlog",
-      "title": "Research Bali wedding planners + event planners",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Work closely with Yuka",
-      "week": "Month 1"
-    },
-    {
-      "id": "228",
-      "column": "backlog",
-      "title": "🎁 Reach out to Zola",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Existing relationship - sell classes as wedding gifts?",
-      "week": "Month 1"
-    },
-    {
-      "id": "229",
-      "column": "backlog",
-      "title": "Create outreach templates",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Hotels, wedding planners, event planners",
-      "week": "Month 1"
-    },
-    {
-      "id": "230",
-      "column": "backlog",
-      "title": "Set up 5-step email nurture in Mailchimp",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Welcome → education → social proof → scarcity → nudge",
-      "week": "Month 1"
-    },
-    {
-      "id": "231",
-      "column": "backlog",
-      "title": "Set up weekly newsletter",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Upcoming classes + wild food info",
-      "week": "Month 2"
-    },
-    {
-      "id": "232",
-      "column": "backlog",
-      "title": "Set up bi-weekly Yuka + Carla calls",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Coordinate on partnerships",
-      "week": "Month 1"
-    },
-    {
-      "id": "252",
-      "column": "backlog",
-      "title": "🎁 Gift integration with Zola/registry sites",
-      "owner": "Carla",
-      "priority": "high",
-      "notes": "Wedding registry integration",
-      "week": "Month 1"
-    },
-    {
-      "id": "253",
-      "column": "backlog",
-      "title": "🎁 Gift redemption system in Bokun",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "How do gift recipients redeem? Voucher codes?",
-      "week": "Month 2"
-    },
-    {
-      "id": "420",
-      "column": "backlog",
-      "title": "QR code review cards for guests",
-      "owner": "Carla",
-      "priority": "medium",
-      "notes": "Hand out at end of experience",
-      "week": "Month 2"
-    },
-    {
-      "id": "421",
-      "column": "backlog",
-      "title": "Sign up for HARO (Featured.com)",
-      "owner": "Carla",
-      "priority": "low",
-      "notes": "Free journalist queries",
-      "week": "Month 2"
-    },
-    {
-      "id": "422",
-      "column": "backlog",
-      "title": "List Bali food/travel bloggers",
-      "owner": "Carla",
-      "priority": "low",
-      "notes": "For influencer outreach",
-      "week": "Month 2"
-    },
-    {
-      "id": "423",
-      "column": "backlog",
-      "title": "Influencer hosting plan",
-      "owner": "Carla",
-      "priority": "low",
-      "notes": "Comp 2-3 classes/month for coverage",
-      "week": "Month 2"
-    },
-    {
-      "id": "240",
-      "column": "backlog",
-      "title": "Get Bokun API keys",
-      "owner": "Alex",
-      "priority": "high",
-      "notes": "For Noko integration",
-      "week": "Month 1"
-    },
-    {
-      "id": "241",
-      "column": "backlog",
-      "title": "Set up Google Drive master folder",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Team folder, get OAuth for Noko",
-      "week": "Month 1"
-    },
-    {
-      "id": "242",
-      "column": "backlog",
-      "title": "Create FAQ knowledge base for Noko",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "What to wear, location, cancellation, etc.",
-      "week": "Month 1"
-    },
-    {
-      "id": "243",
-      "column": "backlog",
-      "title": "Map full customer journey",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Inquiry → booking → pre-trip → experience → follow-up",
-      "week": "Month 1"
-    },
-    {
-      "id": "244",
-      "column": "backlog",
-      "title": "Set up Forage Bali email OAuth for Noko",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Send/receive emails",
-      "week": "Month 1"
-    },
-    {
-      "id": "245",
-      "column": "backlog",
-      "title": "Connect Google Business for reviews",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Noko can see/draft responses",
-      "week": "Month 1"
-    },
-    {
-      "id": "246",
-      "column": "backlog",
-      "title": "Write Noko brand voice guidelines",
-      "owner": "Alex",
-      "priority": "high",
-      "notes": "Strict guidelines Noko follows exactly",
-      "week": "Month 1"
-    },
-    {
-      "id": "300",
-      "column": "backlog",
-      "title": "Connect Noko to Bokun API",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Read availability, bookings, guest info",
-      "week": "Month 2"
-    },
-    {
-      "id": "301",
-      "column": "backlog",
-      "title": "Connect Noko to Google Calendar",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "",
-      "week": "Month 2"
-    },
-    {
-      "id": "303",
-      "column": "backlog",
-      "title": "Connect Noko to WhatsApp",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Start with OpenClaw connection",
-      "week": "Month 2"
-    },
-    {
-      "id": "304",
-      "column": "backlog",
-      "title": "Noko: auto booking confirmations",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "",
-      "week": "Month 2"
-    },
-    {
-      "id": "305",
-      "column": "backlog",
-      "title": "Noko: pre-trip reminders (1 week + 1 day)",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "",
-      "week": "Month 2"
-    },
-    {
-      "id": "306",
-      "column": "backlog",
-      "title": "Test Noko on 10 sample inquiries",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "",
-      "week": "Month 2"
-    },
-    {
-      "id": "307",
-      "column": "backlog",
-      "title": "Set up Noko escalation flow",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "When to ping Yuka/team",
-      "week": "Month 2"
-    },
-    {
-      "id": "308",
-      "column": "backlog",
-      "title": "Noko: post-trip thank you + photos",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Staff drops photos in Slack, Noko creates email",
-      "week": "Month 3"
-    },
-    {
-      "id": "309",
-      "column": "backlog",
-      "title": "Noko: review requests (day 2 + 7)",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "",
-      "week": "Month 3"
-    },
-    {
-      "id": "310",
-      "column": "backlog",
-      "title": "Noko: weekly business report to Slack",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Revenue, bookings, reviews, blind spots",
-      "week": "Month 3"
-    },
-    {
-      "id": "311",
-      "column": "backlog",
-      "title": "Noko: weekly QA check",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Reviews visible? Site working? Links? Booking flow?",
-      "week": "Month 3"
-    },
-    {
-      "id": "312",
-      "column": "backlog",
-      "title": "Noko: customer enrichment research",
-      "owner": "Alex",
-      "priority": "low",
-      "notes": "LinkedIn lookup, flag VIPs",
-      "week": "Month 3"
-    },
-    {
-      "id": "313",
-      "column": "backlog",
-      "title": "Noko: Instagram content calendar",
-      "owner": "Alex",
-      "priority": "low",
-      "notes": "Draft month of content, staff reviews",
-      "week": "Month 2-3"
-    },
-    {
-      "id": "314",
-      "column": "backlog",
-      "title": "Noko: daily digest to staff",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Morning summary of WhatsApp conversations",
-      "week": "Month 2"
-    },
-    {
-      "id": "500",
-      "column": "backlog",
-      "title": "WebMCP protocol setup",
-      "owner": "Alex",
-      "priority": "low",
-      "notes": "Make site agent-friendly for AI search",
-      "week": "Month 3+"
-    },
-    {
-      "id": "502",
-      "column": "backlog",
-      "title": "GDPR/privacy compliance",
-      "owner": "Alex",
-      "priority": "medium",
-      "notes": "Consent checkbox, privacy policy",
-      "week": "Month 1"
-    },
-    {
-      "id": "400",
-      "column": "backlog",
-      "title": "Finalize teacher agreement with Made",
-      "owner": "Iso",
-      "priority": "medium",
-      "notes": "After first class",
-      "week": "After April 24"
-    },
-    {
-      "id": "401",
-      "column": "backlog",
-      "title": "Research liability insurance",
-      "owner": "Alex",
-      "priority": "low",
-      "notes": "~$500-2k/year",
-      "week": "After April 24"
-    },
-    {
-      "id": "402",
-      "column": "backlog",
-      "title": "Confirm tax obligations",
-      "owner": "Iso",
-      "priority": "low",
-      "notes": "10% local tax",
-      "week": "After April 24"
-    },
-    {
-      "id": "403",
-      "column": "backlog",
-      "title": "Post-class debrief",
-      "owner": "All",
-      "priority": "high",
-      "notes": "What worked, what didn't",
-      "week": "After April 24"
-    },
-    {
-      "id": "501",
-      "column": "backlog",
-      "title": "E-commerce: sell foraged products",
-      "owner": "Iso",
-      "priority": "low",
-      "notes": "Source local products, sell on website",
-      "week": "Month 3+"
-    }
-  ],
-  "lastUpdated": "2026-02-18T05:30:00.000Z"
-};
+    const data = {"columns":[{"id":"up-next","title":"Up Next"},{"id":"in-progress","title":"In Progress"},{"id":"backlog","title":"Backlog"},{"id":"done","title":"Done"}],"cards":[{"id":"100","column":"up-next","title":"Define cancellation policy","owner":"Iso","priority":"high","notes":"How many days notice? Refund %?","week":"This Week"},{"id":"101","column":"up-next","title":"Test full booking flow end-to-end","owner":"Iso","priority":"high","notes":"Book as customer, verify emails, check Bokun","week":"This Week"},{"id":"102","column":"up-next","title":"Review private events page","owner":"Iso","priority":"medium","notes":"Check inquiry form works","week":"This Week"},{"id":"103","column":"up-next","title":"Final review: Made bio + class description","owner":"Iso","priority":"medium","notes":"Already on site, needs approval","week":"This Week"},{"id":"104","column":"up-next","title":"Mobile responsive check","owner":"Iso","priority":"medium","notes":"Test site on phone","week":"This Week"},{"id":"105","column":"up-next","title":"Research hotel pamphlet examples","owner":"Iso","priority":"medium","notes":"What works for concierge handouts?","week":"This Week"},{"id":"110","column":"up-next","title":"⚡ Finalize partnership agreement","owner":"Yuka","priority":"high","notes":"PRIORITY - 25/25/50 split, roles","week":"This Week"},{"id":"111","column":"up-next","title":"Confirm meeting point for guests","owner":"Yuka","priority":"high","notes":"Ubud pickup location","week":"This Week"},{"id":"112","column":"up-next","title":"Get transport/bus pricing","owner":"Yuka","priority":"high","notes":"14-15 person capacity","week":"This Week"},{"id":"113","column":"up-next","title":"Start Instagram: 4 posts/week","owner":"Yuka","priority":"high","notes":"Starting Monday. Crosspost from ForageSF","week":"This Week"},{"id":"114","column":"up-next","title":"Follow 10 Bali tourism accounts/day","owner":"Yuka","priority":"medium","notes":"Build presence","week":"This Week"},{"id":"115","column":"up-next","title":"Print flyers for hotel visits","owner":"Yuka","priority":"medium","notes":"One-pager with QR to book","week":"This Week"},{"id":"120","column":"up-next","title":"Review participant waiver","owner":"Carla","priority":"high","notes":"Legal review","week":"This Week"},{"id":"121","column":"up-next","title":"Set up Bokun → Google Calendar sync","owner":"Carla","priority":"high","notes":"Native Bokun integration","week":"This Week"},{"id":"122","column":"up-next","title":"Send ForageSF email announcement","owner":"Carla","priority":"high","notes":"Announce to existing list","week":"This Week"},{"id":"123","column":"up-next","title":"Coordinate with Yuka: what guests bring/wear","owner":"Carla","priority":"medium","notes":"For confirmation email","week":"This Week"},{"id":"124","column":"up-next","title":"Create confirmation email template","owner":"Carla","priority":"high","notes":"Logistics: what to wear, meeting point","week":"This Week"},{"id":"130","column":"up-next","title":"Fix WhatsApp number (deactivated)","owner":"Alex","priority":"high","notes":"Previous number got deactivated","week":"This Week"},{"id":"131","column":"up-next","title":"SEO sweep (meta tags, OG images)","owner":"Alex","priority":"medium","notes":"AI-first SEO","week":"This Week"},{"id":"132","column":"up-next","title":"Add Google Analytics","owner":"Alex","priority":"medium","notes":"Basic tracking","week":"This Week"},{"id":"133","column":"up-next","title":"Hero video options","owner":"Alex","priority":"medium","notes":"Pan shot, people walking - optimize for load","week":"This Week"},{"id":"200","column":"backlog","title":"Create brand guidelines doc","owner":"Iso","priority":"high","notes":"Colors, fonts, voice","week":"Month 1"},{"id":"201","column":"backlog","title":"Create press packet","owner":"Iso","priority":"high","notes":"Story, photos, bios","week":"Month 1"},{"id":"202","column":"backlog","title":"Write hotel pamphlet","owner":"Iso","priority":"high","notes":"PDF for hotel distribution","week":"Month 1"},{"id":"203","column":"backlog","title":"Confirm what's included in class","owner":"Iso","priority":"high","notes":"Transport? Food? Drinks?","week":"Month 1"},{"id":"204","column":"backlog","title":"Build staff dashboard","owner":"Iso","priority":"medium","notes":"Supabase + Vercel, mobile-first","week":"Month 2"},{"id":"250","column":"backlog","title":"🎁 Create gift certificate flow","owner":"Iso","priority":"high","notes":"IMPORTANT: Website flow for buying as gifts","week":"Month 1"},{"id":"251","column":"backlog","title":"🎁 Gift certificate design + email","owner":"Iso","priority":"high","notes":"Beautiful PDF for recipients","week":"Month 1"},{"id":"210","column":"backlog","title":"Visit top hotels with flyers","owner":"Yuka","priority":"high","notes":"In-person relationship building","week":"Month 1"},{"id":"211","column":"backlog","title":"Scout backup/additional teachers","owner":"Yuka","priority":"medium","notes":"For expansion","week":"Month 1-2"},{"id":"212","column":"backlog","title":"Start bi-weekly blog posts","owner":"Yuka","priority":"medium","notes":"One plant + childhood memory","week":"Month 1"},{"id":"410","column":"backlog","title":"Second teacher interviews","owner":"Yuka","priority":"medium","notes":"For expansion","week":"Month 3"},{"id":"411","column":"backlog","title":"Define teacher criteria","owner":"Yuka","priority":"medium","notes":"Knowledge, personality, language","week":"Month 3"},{"id":"412","column":"backlog","title":"Create teacher training doc","owner":"Yuka","priority":"medium","notes":"For new teachers","week":"Month 3"},{"id":"220","column":"backlog","title":"TripAdvisor listing","owner":"Carla","priority":"high","notes":"","week":"Month 1"},{"id":"221","column":"backlog","title":"Google Business Profile setup","owner":"Carla","priority":"high","notes":"Critical for local SEO","week":"Month 1"},{"id":"222","column":"backlog","title":"Viator application","owner":"Carla","priority":"high","notes":"","week":"Month 1"},{"id":"223","column":"backlog","title":"GetYourGuide application","owner":"Carla","priority":"high","notes":"","week":"Month 1"},{"id":"224","column":"backlog","title":"Airbnb Experiences outreach","owner":"Carla","priority":"high","notes":"Existing relationship","week":"Month 1"},{"id":"225","column":"backlog","title":"Klook application","owner":"Carla","priority":"medium","notes":"Popular in Asia","week":"Month 1"},{"id":"226","column":"backlog","title":"Research top 20 hotels + retreats","owner":"Carla","priority":"high","notes":"Create outreach list","week":"Month 1"},{"id":"227","column":"backlog","title":"Research Bali wedding/event planners","owner":"Carla","priority":"high","notes":"Work with Yuka","week":"Month 1"},{"id":"228","column":"backlog","title":"🎁 Reach out to Zola","owner":"Carla","priority":"high","notes":"Sell classes as wedding gifts?","week":"Month 1"},{"id":"229","column":"backlog","title":"Create outreach templates","owner":"Carla","priority":"medium","notes":"Hotels, wedding planners","week":"Month 1"},{"id":"230","column":"backlog","title":"Set up 5-step email nurture","owner":"Carla","priority":"medium","notes":"Welcome → education → social proof → nudge","week":"Month 1"},{"id":"231","column":"backlog","title":"Set up weekly newsletter","owner":"Carla","priority":"medium","notes":"Upcoming classes + wild food info","week":"Month 2"},{"id":"232","column":"backlog","title":"Set up bi-weekly Yuka + Carla calls","owner":"Carla","priority":"medium","notes":"Coordinate on partnerships","week":"Month 1"},{"id":"252","column":"backlog","title":"🎁 Gift integration with Zola","owner":"Carla","priority":"high","notes":"Wedding registry integration","week":"Month 1"},{"id":"253","column":"backlog","title":"🎁 Gift redemption system in Bokun","owner":"Carla","priority":"medium","notes":"Voucher codes?","week":"Month 2"},{"id":"420","column":"backlog","title":"QR code review cards","owner":"Carla","priority":"medium","notes":"Hand out at end of experience","week":"Month 2"},{"id":"421","column":"backlog","title":"Sign up for HARO","owner":"Carla","priority":"low","notes":"Free journalist queries","week":"Month 2"},{"id":"422","column":"backlog","title":"List Bali food/travel bloggers","owner":"Carla","priority":"low","notes":"For influencer outreach","week":"Month 2"},{"id":"423","column":"backlog","title":"Influencer hosting plan","owner":"Carla","priority":"low","notes":"Comp 2-3 classes/month","week":"Month 2"},{"id":"240","column":"backlog","title":"Get Bokun API keys","owner":"Alex","priority":"high","notes":"For Noko integration","week":"Month 1"},{"id":"241","column":"backlog","title":"Set up Google Drive master folder","owner":"Alex","priority":"medium","notes":"Team folder + OAuth for Noko","week":"Month 1"},{"id":"242","column":"backlog","title":"Create FAQ knowledge base","owner":"Alex","priority":"medium","notes":"What to wear, location, cancellation","week":"Month 1"},{"id":"243","column":"backlog","title":"Map full customer journey","owner":"Alex","priority":"medium","notes":"Inquiry → booking → experience → follow-up","week":"Month 1"},{"id":"244","column":"backlog","title":"Set up Forage Bali email OAuth","owner":"Alex","priority":"medium","notes":"Send/receive for Noko","week":"Month 1"},{"id":"245","column":"backlog","title":"Connect Google Business for reviews","owner":"Alex","priority":"medium","notes":"Noko can see/draft responses","week":"Month 1"},{"id":"246","column":"backlog","title":"Write Noko brand voice guidelines","owner":"Alex","priority":"high","notes":"Strict guidelines Noko follows","week":"Month 1"},{"id":"300","column":"backlog","title":"Connect Noko to Bokun API","owner":"Alex","priority":"medium","notes":"Read availability, bookings","week":"Month 2"},{"id":"301","column":"backlog","title":"Connect Noko to Google Calendar","owner":"Alex","priority":"medium","notes":"","week":"Month 2"},{"id":"303","column":"backlog","title":"Connect Noko to WhatsApp","owner":"Alex","priority":"medium","notes":"Start with OpenClaw","week":"Month 2"},{"id":"304","column":"backlog","title":"Noko: auto booking confirmations","owner":"Alex","priority":"medium","notes":"","week":"Month 2"},{"id":"305","column":"backlog","title":"Noko: pre-trip reminders","owner":"Alex","priority":"medium","notes":"1 week + 1 day before","week":"Month 2"},{"id":"306","column":"backlog","title":"Test Noko on 10 sample inquiries","owner":"Alex","priority":"medium","notes":"","week":"Month 2"},{"id":"307","column":"backlog","title":"Set up Noko escalation flow","owner":"Alex","priority":"medium","notes":"When to ping Yuka/team","week":"Month 2"},{"id":"308","column":"backlog","title":"Noko: post-trip thank you + photos","owner":"Alex","priority":"medium","notes":"Staff drops photos in Slack","week":"Month 3"},{"id":"309","column":"backlog","title":"Noko: review requests","owner":"Alex","priority":"medium","notes":"Day 2 + 7","week":"Month 3"},{"id":"310","column":"backlog","title":"Noko: weekly business report","owner":"Alex","priority":"medium","notes":"Revenue, bookings, reviews","week":"Month 3"},{"id":"311","column":"backlog","title":"Noko: weekly QA check","owner":"Alex","priority":"medium","notes":"Reviews visible? Site working?","week":"Month 3"},{"id":"312","column":"backlog","title":"Noko: customer enrichment","owner":"Alex","priority":"low","notes":"LinkedIn lookup, flag VIPs","week":"Month 3"},{"id":"313","column":"backlog","title":"Noko: Instagram content calendar","owner":"Alex","priority":"low","notes":"Draft month, staff reviews","week":"Month 2-3"},{"id":"314","column":"backlog","title":"Noko: daily digest to staff","owner":"Alex","priority":"medium","notes":"Morning WhatsApp summary","week":"Month 2"},{"id":"500","column":"backlog","title":"WebMCP protocol setup","owner":"Alex","priority":"low","notes":"AI-friendly site","week":"Month 3+"},{"id":"502","column":"backlog","title":"GDPR/privacy compliance","owner":"Alex","priority":"medium","notes":"Consent checkbox, privacy policy","week":"Month 1"},{"id":"400","column":"backlog","title":"Finalize teacher agreement with Made","owner":"Iso","priority":"medium","notes":"After first class","week":"After April 24"},{"id":"401","column":"backlog","title":"Research liability insurance","owner":"Alex","priority":"low","notes":"~$500-2k/year","week":"After April 24"},{"id":"402","column":"backlog","title":"Confirm tax obligations","owner":"Iso","priority":"low","notes":"10% local tax","week":"After April 24"},{"id":"403","column":"backlog","title":"Post-class debrief","owner":"All","priority":"high","notes":"What worked, what didn't","week":"After April 24"},{"id":"501","column":"backlog","title":"E-commerce: sell foraged products","owner":"Iso","priority":"low","notes":"Source local products","week":"Month 3+"}]};
     
-    // State
-    let filters = {
-      owner: 'all',
-      week: 'all'
-    };
+    let filters = { owner: 'all', week: 'all' };
     
-    // Helper functions
-    function isGiftTask(title) {
-      return title.includes('🎁');
+    function getCounts() {
+      const counts = { Iso: 0, Yuka: 0, Carla: 0, Alex: 0 };
+      data.cards.forEach(c => { if (counts[c.owner] !== undefined) counts[c.owner]++; });
+      return counts;
     }
     
-    function normalizeWeek(week) {
-      if (!week) return 'Unscheduled';
-      if (week.includes('Month 1')) return 'Month 1';
-      if (week.includes('Month 2')) return 'Month 2';
-      if (week.includes('Month 3')) return 'Month 3';
-      return week;
-    }
-    
-    function matchesWeekFilter(cardWeek, filterValue) {
-      if (filterValue === 'all') return true;
-      const normalized = normalizeWeek(cardWeek);
-      if (filterValue === 'Month 3' && cardWeek && cardWeek.includes('Month 3')) return true;
-      return normalized === filterValue;
-    }
-    
-    // Countdown
-    function updateCountdown() {
-      const launchDate = new Date('2026-04-24T09:00:00');
-      const now = new Date();
-      const diff = launchDate - now;
-      
-      if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = '<div class="countdown-item"><div class="countdown-value">🎉</div><div class="countdown-label">Launched!</div></div>';
-        return;
-      }
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      document.getElementById('countdown').innerHTML = `
-        <div class="countdown-item">
-          <div class="countdown-value">${days}</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-value">${hours}</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-value">${minutes}</div>
-          <div class="countdown-label">Min</div>
-        </div>
+    function renderOwnerPills() {
+      const counts = getCounts();
+      document.getElementById('ownerPills').innerHTML = `
+        <div class="owner-pill all ${filters.owner === 'all' ? 'active' : ''}" data-owner="all">All ${data.cards.length}</div>
+        <div class="owner-pill iso ${filters.owner === 'Iso' ? 'active' : ''}" data-owner="Iso">Iso ${counts.Iso}</div>
+        <div class="owner-pill yuka ${filters.owner === 'Yuka' ? 'active' : ''}" data-owner="Yuka">Yuka ${counts.Yuka}</div>
+        <div class="owner-pill carla ${filters.owner === 'Carla' ? 'active' : ''}" data-owner="Carla">Carla ${counts.Carla}</div>
+        <div class="owner-pill alex ${filters.owner === 'Alex' ? 'active' : ''}" data-owner="Alex">Alex ${counts.Alex}</div>
       `;
-    }
-    
-    // Stats
-    function renderStats() {
-      const total = data.cards.length;
-      const done = data.cards.filter(c => c.column === 'done').length;
-      const thisWeek = data.cards.filter(c => c.week === 'This Week').length;
-      const highPriority = data.cards.filter(c => c.priority === 'high' && c.column !== 'done').length;
-      const giftTasks = data.cards.filter(c => isGiftTask(c.title)).length;
-      
-      document.getElementById('statsRow').innerHTML = `
-        <div class="stat-card">
-          <div class="stat-value">${total}</div>
-          <div class="stat-label">Total Tasks</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${done}</div>
-          <div class="stat-label">Completed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${thisWeek}</div>
-          <div class="stat-label">This Week</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${highPriority}</div>
-          <div class="stat-label">High Priority</div>
-        </div>
-        <div class="stat-card gift">
-          <div class="stat-value">${giftTasks}</div>
-          <div class="stat-label">🎁 Gift Tasks</div>
-        </div>
-      `;
-      
-      // Progress
-      const progress = total > 0 ? Math.round((done / total) * 100) : 0;
-      document.getElementById('progressPercent').textContent = `${progress}%`;
-      document.getElementById('progressFill').style.width = `${progress}%`;
-      
-      // Owner stats
-      const ownerCounts = {};
-      data.owners.forEach(o => ownerCounts[o.name] = 0);
-      data.cards.forEach(c => {
-        if (c.owner && ownerCounts[c.owner] !== undefined) {
-          ownerCounts[c.owner]++;
-        }
+      document.querySelectorAll('.owner-pill').forEach(p => {
+        p.onclick = () => { filters.owner = p.dataset.owner; render(); };
       });
-      
-      document.getElementById('ownerStats').innerHTML = data.owners.map(o => `
-        <div class="owner-stat">
-          <div class="owner-stat-dot ${o.id}"></div>
-          <span class="owner-stat-label">${o.name}</span>
-          <span class="owner-stat-count">${ownerCounts[o.name]}</span>
-        </div>
-      `).join('');
     }
     
-    // Render board
+    function setupTimeline() {
+      document.querySelectorAll('.timeline-btn').forEach(b => {
+        b.onclick = () => {
+          document.querySelectorAll('.timeline-btn').forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          filters.week = b.dataset.week;
+          render();
+        };
+      });
+    }
+    
+    function matchWeek(cardWeek, filter) {
+      if (filter === 'all') return true;
+      if (!cardWeek) return false;
+      if (filter === 'Month 3' && cardWeek.includes('Month 3')) return true;
+      return cardWeek === filter || cardWeek.startsWith(filter);
+    }
+    
     function renderBoard() {
-      const board = document.getElementById('board');
-      
-      const filteredCards = data.cards.filter(card => {
-        const ownerMatch = filters.owner === 'all' || card.owner === filters.owner;
-        const weekMatch = matchesWeekFilter(card.week, filters.week);
-        return ownerMatch && weekMatch;
+      const filtered = data.cards.filter(c => {
+        const ownerOk = filters.owner === 'all' || c.owner === filters.owner;
+        const weekOk = matchWeek(c.week, filters.week);
+        return ownerOk && weekOk;
       });
       
-      board.innerHTML = data.columns.map(col => {
-        const colCards = filteredCards.filter(c => c.column === col.id);
-        
+      document.getElementById('board').innerHTML = data.columns.map(col => {
+        const cards = filtered.filter(c => c.column === col.id);
         return `
           <div class="column">
             <div class="column-header">
               <div class="column-title">
                 <div class="column-dot ${col.id}"></div>
-                <h3>${col.title}</h3>
+                <span>${col.title}</span>
               </div>
-              <span class="column-count">${colCards.length}</span>
+              <span class="column-count">${cards.length}</span>
             </div>
             <div class="column-cards">
-              ${colCards.length === 0 ? `
-                <div class="empty-state">
-                  <div class="empty-state-icon">📭</div>
-                  <div class="empty-state-text">No tasks</div>
+              ${cards.length === 0 ? '<div class="empty-state">No tasks</div>' : cards.map(c => `
+                <div class="card ${c.title.includes('🎁') ? 'gift' : ''}" onclick="this.classList.toggle('expanded')">
+                  <div class="card-header">
+                    <div class="priority-dot ${c.priority}"></div>
+                    <div class="card-title">${c.title}</div>
+                  </div>
+                  <div class="card-meta">
+                    <span class="owner-tag ${(c.owner||'all').toLowerCase()}">${c.owner || 'All'}</span>
+                    <span class="week-tag">${c.week || ''}</span>
+                  </div>
+                  ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
                 </div>
-              ` : colCards.map(card => renderCard(card)).join('')}
+              `).join('')}
             </div>
           </div>
         `;
       }).join('');
-      
-      // Add click handlers
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => {
-          card.classList.toggle('expanded');
-        });
-      });
     }
     
-    function renderCard(card) {
-      const isGift = isGiftTask(card.title);
-      const ownerClass = card.owner ? card.owner.toLowerCase() : 'all';
-      
-      return `
-        <div class="card ${isGift ? 'gift' : ''}" data-id="${card.id}">
-          <div class="card-header">
-            <div class="priority-dot ${card.priority}"></div>
-            <div class="card-title">${card.title}</div>
-          </div>
-          <div class="card-meta">
-            <span class="owner-tag ${ownerClass}">${card.owner || 'All'}</span>
-            <span class="week-tag">${card.week || ''}</span>
-          </div>
-          ${card.notes ? `<div class="card-notes">${card.notes}</div>` : ''}
-        </div>
-      `;
-    }
-    
-    // Filter handling
-    function setupFilters() {
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filterType = btn.dataset.filter;
-          const value = btn.dataset.value;
-          
-          // Update state
-          filters[filterType] = value;
-          
-          // Update UI
-          document.querySelectorAll(`.filter-btn[data-filter="${filterType}"]`).forEach(b => {
-            b.classList.remove('active');
-          });
-          btn.classList.add('active');
-          
-          // Re-render
-          renderBoard();
-        });
-      });
-    }
-    
-    // Initialize
-    function init() {
-      updateCountdown();
-      setInterval(updateCountdown, 60000);
-      renderStats();
+    function render() {
+      renderOwnerPills();
       renderBoard();
-      setupFilters();
     }
     
-    init();
+    setupTimeline();
+    render();
   </script>
 </body>
 </html>
