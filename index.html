@@ -61,17 +61,33 @@
     }
     
     .logo-icon { font-size: 24px; }
+    .logo h1 { font-size: 18px; font-weight: 600; }
+    .logo span { font-size: 12px; color: var(--text-muted); margin-left: 8px; }
     
-    .logo h1 {
-      font-size: 18px;
-      font-weight: 600;
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface-elevated);
+      padding: 4px;
+      border-radius: 8px;
     }
     
-    .logo span {
-      font-size: 12px;
+    .tab {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: transparent;
       color: var(--text-muted);
-      margin-left: 8px;
+      font-family: inherit;
+      transition: all 0.15s;
     }
+    
+    .tab:hover { color: var(--text); }
+    .tab.active { background: var(--accent); color: white; }
     
     .owner-pills {
       display: flex;
@@ -94,40 +110,26 @@
     
     .owner-pill:hover { opacity: 0.8; }
     .owner-pill.active { border-color: white; }
-    
     .owner-pill.all { background: var(--surface-elevated); color: var(--text-muted); }
     .owner-pill.iso { background: rgba(123,158,107,0.2); color: var(--iso); }
     .owner-pill.yuka { background: rgba(224,122,61,0.2); color: var(--yuka); }
     .owner-pill.carla { background: rgba(139,157,195,0.2); color: var(--carla); }
     .owner-pill.alex { background: rgba(155,123,195,0.2); color: var(--alex); }
     
-    .timeline-filters {
+    .filters-row {
       display: flex;
-      gap: 6px;
+      gap: 12px;
+      align-items: center;
       flex-wrap: wrap;
     }
     
-    .timeline-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      cursor: pointer;
-      transition: all 0.15s;
-      font-family: inherit;
-    }
-    
-    .timeline-btn:hover { border-color: var(--accent); color: var(--text); }
-    .timeline-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-    
+    /* Board View */
     .board {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       padding: 16px;
-      min-height: calc(100vh - 100px);
+      min-height: calc(100vh - 120px);
     }
     
     @media (max-width: 1200px) { .board { grid-template-columns: repeat(2, 1fr); } }
@@ -139,7 +141,7 @@
       border-radius: 10px;
       display: flex;
       flex-direction: column;
-      max-height: calc(100vh - 130px);
+      max-height: calc(100vh - 140px);
     }
     
     @media (max-width: 600px) { .column { max-height: none; } }
@@ -186,15 +188,64 @@
       flex: 1;
     }
     
+    /* Overview / Timeline View */
+    .overview {
+      padding: 16px;
+      display: none;
+    }
+    
+    .overview.active { display: block; }
+    .board.hidden { display: none; }
+    
+    .timeline-section {
+      margin-bottom: 24px;
+    }
+    
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .timeline-badge {
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .timeline-badge.week { background: #f85149; }
+    .timeline-badge.month1 { background: #d29922; }
+    .timeline-badge.month2 { background: #a371f7; }
+    .timeline-badge.month3 { background: #8b949e; }
+    
+    .timeline-count {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    
+    .timeline-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    
+    /* Cards */
     .card {
       background: var(--surface-elevated);
       border: 1px solid var(--border-light);
       border-radius: 6px;
       padding: 10px 12px;
-      margin-bottom: 8px;
       cursor: pointer;
       transition: all 0.15s;
     }
+    
+    .board .card { margin-bottom: 8px; }
     
     .card:hover {
       border-color: var(--border);
@@ -254,8 +305,11 @@
     .owner-tag.alex { background: rgba(155,123,195,0.2); color: var(--alex); }
     .owner-tag.all { background: rgba(88,166,255,0.2); color: var(--accent); }
     
-    .week-tag {
+    .status-tag {
       font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: var(--surface);
       color: var(--text-faint);
     }
     
@@ -286,23 +340,23 @@
         <h1>Forage Bali</h1>
         <span>First class: April 24</span>
       </div>
-      <div class="owner-pills" id="ownerPills"></div>
+      <div class="tabs">
+        <button class="tab active" data-view="overview">Overview</button>
+        <button class="tab" data-view="board">Board</button>
+      </div>
     </div>
-    <div class="timeline-filters" id="timelineFilters">
-      <button class="timeline-btn active" data-week="all">All</button>
-      <button class="timeline-btn" data-week="This Week">This Week</button>
-      <button class="timeline-btn" data-week="Month 1">Month 1</button>
-      <button class="timeline-btn" data-week="Month 2">Month 2</button>
-      <button class="timeline-btn" data-week="Month 3">Month 3</button>
-      <button class="timeline-btn" data-week="After April 24">Post-Launch</button>
+    <div class="filters-row">
+      <div class="owner-pills" id="ownerPills"></div>
     </div>
   </header>
   
-  <main class="board" id="board"></main>
+  <div class="overview active" id="overview"></div>
+  <main class="board hidden" id="board"></main>
   
   <script>
     let data = null;
-    let filters = { owner: 'all', week: 'all' };
+    let filters = { owner: 'all' };
+    let currentView = 'overview';
     
     async function loadData() {
       const res = await fetch('data.json');
@@ -330,30 +384,94 @@
       });
     }
     
-    function setupTimeline() {
-      document.querySelectorAll('.timeline-btn').forEach(b => {
-        b.onclick = () => {
-          document.querySelectorAll('.timeline-btn').forEach(x => x.classList.remove('active'));
-          b.classList.add('active');
-          filters.week = b.dataset.week;
+    function setupTabs() {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.onclick = () => {
+          document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+          t.classList.add('active');
+          currentView = t.dataset.view;
+          
+          document.getElementById('overview').classList.toggle('active', currentView === 'overview');
+          document.getElementById('board').classList.toggle('hidden', currentView !== 'board');
+          
           render();
         };
       });
     }
     
-    function matchWeek(cardWeek, filter) {
-      if (filter === 'all') return true;
-      if (!cardWeek) return false;
-      if (filter === 'Month 3' && cardWeek.includes('Month 3')) return true;
-      return cardWeek === filter || cardWeek.startsWith(filter);
+    function filterCards(cards) {
+      return cards.filter(c => {
+        const ownerOk = filters.owner === 'all' || c.owner === filters.owner;
+        // Exclude post-launch from overview
+        const notPostLaunch = !c.week || !c.week.includes('After April');
+        return ownerOk && (currentView === 'board' || notPostLaunch);
+      });
+    }
+    
+    function renderCard(c, showStatus = false) {
+      const statusMap = {
+        'up-next': 'Up Next',
+        'in-progress': 'In Progress',
+        'backlog': 'Backlog',
+        'done': 'Done'
+      };
+      return `
+        <div class="card ${c.title.includes('🎁') ? 'gift' : ''}" onclick="this.classList.toggle('expanded')">
+          <div class="card-header">
+            <div class="priority-dot ${c.priority}"></div>
+            <div class="card-title">${c.title}</div>
+          </div>
+          <div class="card-meta">
+            <span class="owner-tag ${(c.owner||'all').toLowerCase()}">${c.owner || 'All'}</span>
+            ${showStatus ? `<span class="status-tag">${statusMap[c.column] || c.column}</span>` : ''}
+          </div>
+          ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
+        </div>
+      `;
+    }
+    
+    function renderOverview() {
+      const filtered = filterCards(data.cards);
+      
+      const timelines = [
+        { id: 'This Week', label: 'This Week', badge: 'week' },
+        { id: 'Month 1', label: 'Month 1 (Feb 18 - Mar 18)', badge: 'month1' },
+        { id: 'Month 2', label: 'Month 2 (Mar 18 - Apr 24)', badge: 'month2' },
+        { id: 'Month 3', label: 'Month 3+ (After Launch)', badge: 'month3' }
+      ];
+      
+      let html = '';
+      
+      timelines.forEach(t => {
+        const cards = filtered.filter(c => {
+          if (!c.week) return false;
+          if (t.id === 'This Week') return c.week === 'This Week';
+          if (t.id === 'Month 1') return c.week.includes('Month 1') && c.week !== 'This Week';
+          if (t.id === 'Month 2') return c.week.includes('Month 2');
+          if (t.id === 'Month 3') return c.week.includes('Month 3') || c.week.includes('Month 3+');
+          return false;
+        });
+        
+        if (cards.length === 0) return;
+        
+        html += `
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <span class="timeline-badge ${t.badge}">${t.label}</span>
+              <span class="timeline-count">${cards.length} tasks</span>
+            </div>
+            <div class="timeline-cards">
+              ${cards.map(c => renderCard(c, true)).join('')}
+            </div>
+          </div>
+        `;
+      });
+      
+      document.getElementById('overview').innerHTML = html || '<div class="empty-state">No tasks</div>';
     }
     
     function renderBoard() {
-      const filtered = data.cards.filter(c => {
-        const ownerOk = filters.owner === 'all' || c.owner === filters.owner;
-        const weekOk = matchWeek(c.week, filters.week);
-        return ownerOk && weekOk;
-      });
+      const filtered = filterCards(data.cards);
       
       document.getElementById('board').innerHTML = data.columns.map(col => {
         const cards = filtered.filter(c => c.column === col.id);
@@ -367,19 +485,7 @@
               <span class="column-count">${cards.length}</span>
             </div>
             <div class="column-cards">
-              ${cards.length === 0 ? '<div class="empty-state">No tasks</div>' : cards.map(c => `
-                <div class="card ${c.title.includes('🎁') ? 'gift' : ''}" onclick="this.classList.toggle('expanded')">
-                  <div class="card-header">
-                    <div class="priority-dot ${c.priority}"></div>
-                    <div class="card-title">${c.title}</div>
-                  </div>
-                  <div class="card-meta">
-                    <span class="owner-tag ${(c.owner||'all').toLowerCase()}">${c.owner || 'All'}</span>
-                    <span class="week-tag">${c.week || ''}</span>
-                  </div>
-                  ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
-                </div>
-              `).join('')}
+              ${cards.length === 0 ? '<div class="empty-state">No tasks</div>' : cards.map(c => renderCard(c)).join('')}
             </div>
           </div>
         `;
@@ -388,10 +494,14 @@
     
     function render() {
       renderOwnerPills();
-      renderBoard();
+      if (currentView === 'overview') {
+        renderOverview();
+      } else {
+        renderBoard();
+      }
     }
     
-    setupTimeline();
+    setupTabs();
     loadData();
   </script>
 </body>
