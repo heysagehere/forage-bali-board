@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forage Bali — Project Plan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 24px;
+        }
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            border-color: #7B9E6B;
+        }
+        .filter-btn.active {
+            background: #7B9E6B;
+            border-color: #7B9E6B;
+            color: white;
+        }
+        .filter-btn.iso.active { background: #7B9E6B; border-color: #7B9E6B; }
+        .filter-btn.yuka.active { background: #E07A3D; border-color: #E07A3D; }
+        .filter-btn.carla.active { background: #8B9DC3; border-color: #8B9DC3; }
+        .filter-btn.alex.active { background: #9B7BC3; border-color: #9B7BC3; }
+        .board {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        .column {
+            min-width: 300px;
+            max-width: 300px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .column-header {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .column-count {
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #718096;
+        }
+        .card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+        .card.hidden { display: none; }
+        .card-title {
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .card-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .owner-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: white;
+        }
+        .owner-tag.iso { background: #7B9E6B; }
+        .owner-tag.yuka { background: #E07A3D; }
+        .owner-tag.carla { background: #8B9DC3; }
+        .owner-tag.alex { background: #9B7BC3; }
+        .owner-tag.all { background: #718096; }
+        .priority-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .priority-tag.high { background: #fed7d7; color: #c53030; }
+        .priority-tag.medium { background: #feebc8; color: #c05621; }
+        .priority-tag.low { background: #e2e8f0; color: #718096; }
+        .week-tag {
+            font-size: 11px;
+            color: #718096;
+        }
+        .card-notes {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+        }
+        .milestone {
+            margin-top: 20px;
+            padding: 15px;
+            background: #7B9E6B;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .milestone strong { font-size: 18px; }
+        @media (max-width: 768px) {
+            .column { min-width: 280px; }
+            header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>🌿 Forage Bali — Project Plan</h1>
+            <div class="subtitle">First class: April 24, 2026 | Goal: Live by end of February</div>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-owner="all">All</button>
+            <button class="filter-btn iso" data-owner="Iso">Iso</button>
+            <button class="filter-btn yuka" data-owner="Yuka">Yuka</button>
+            <button class="filter-btn carla" data-owner="Carla">Carla</button>
+            <button class="filter-btn alex" data-owner="Alex">Alex</button>
+        </div>
+    </header>
+
+    <div class="milestone">
+        <strong>🎉 FIRST CLASS: April 24, 2026</strong>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="board" id="board"></div>
+
+    <script>
+        let data = null;
+        let activeFilter = 'all';
+
+        async function loadData() {
+            const res = await fetch('data.json');
+            data = await res.json();
+            render();
+        }
+
+        function render() {
+            const board = document.getElementById('board');
+            const stats = document.getElementById('stats');
+            board.innerHTML = '';
+
+            const columns = ['up-next', 'in-progress', 'backlog', 'done'];
+            const columnNames = {
+                'up-next': '📋 Up Next (This Week)',
+                'in-progress': '🔄 In Progress',
+                'backlog': '📦 Backlog',
+                'done': '✅ Done'
+            };
+
+            let totalVisible = 0;
+            let byOwner = { Iso: 0, Yuka: 0, Carla: 0, Alex: 0 };
+
+            columns.forEach(colId => {
+                const col = document.createElement('div');
+                col.className = 'column';
+
+                const cards = data.cards.filter(c => c.column === colId);
+                const visibleCards = cards.filter(c => {
+                    if (activeFilter === 'all') return true;
+                    return c.owner === activeFilter || c.owner === 'All';
+                });
+
+                col.innerHTML = `
+                    <div class="column-header">
+                        ${columnNames[colId]}
+                        <span class="column-count">${visibleCards.length}</span>
+                    </div>
+                `;
+
+                cards.forEach(card => {
+                    const hidden = activeFilter !== 'all' && card.owner !== activeFilter && card.owner !== 'All';
+                    if (!hidden && colId !== 'done') {
+                        totalVisible++;
+                        if (byOwner[card.owner] !== undefined) byOwner[card.owner]++;
+                    }
+
+                    const cardEl = document.createElement('div');
+                    cardEl.className = `card ${hidden ? 'hidden' : ''}`;
+                    cardEl.innerHTML = `
+                        <div class="card-title">${card.title}</div>
+                        <div class="card-meta">
+                            <span class="owner-tag ${card.owner.toLowerCase()}">${card.owner}</span>
+                            <span class="priority-tag ${card.priority}">${card.priority}</span>
+                            ${card.week ? `<span class="week-tag">${card.week}</span>` : ''}
+                        </div>
+                        ${card.notes ? `<div class="card-notes">${card.notes}</div>` : ''}
+                    `;
+                    col.appendChild(cardEl);
+                });
+
+                board.appendChild(col);
+            });
+
+            stats.innerHTML = `
+                <div class="stat">
+                    <div class="stat-value">${totalVisible}</div>
+                    <div class="stat-label">Total Tasks</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #7B9E6B">${byOwner.Iso}</div>
+                    <div class="stat-label">Iso</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #E07A3D">${byOwner.Yuka}</div>
+                    <div class="stat-label">Yuka</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #8B9DC3">${byOwner.Carla}</div>
+                    <div class="stat-label">Carla</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #9B7BC3">${byOwner.Alex}</div>
+                    <div class="stat-label">Alex</div>
+                </div>
+            `;
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.owner;
+                render();
+            });
+        });
+
+        loadData();
+    </script>
+</body>
+</html>

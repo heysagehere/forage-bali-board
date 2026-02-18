@@ -1,0 +1,747 @@
+{
+  "columns": [
+    { "id": "backlog", "title": "Backlog" },
+    { "id": "up-next", "title": "Up Next" },
+    { "id": "in-progress", "title": "In Progress" },
+    { "id": "blocked", "title": "Blocked" },
+    { "id": "done", "title": "Done" }
+  ],
+  "owners": [
+    { "id": "iso", "name": "Iso", "color": "#7B9E6B" },
+    { "id": "yuka", "name": "Yuka", "color": "#E07A3D" },
+    { "id": "carla", "name": "Carla", "color": "#8B9DC3" },
+    { "id": "alex", "name": "Alex", "color": "#9B7BC3" }
+  ],
+  "cards": [
+    {
+      "id": "100",
+      "column": "up-next",
+      "title": "Define cancellation policy",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "How many days notice? Refund %? Rain = rain or shine (decided)",
+      "week": "This Week"
+    },
+    {
+      "id": "101",
+      "column": "up-next",
+      "title": "Test full booking flow end-to-end",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "Book as customer, verify emails, check Bokun",
+      "week": "This Week"
+    },
+    {
+      "id": "102",
+      "column": "up-next",
+      "title": "Review private events page",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "Check inquiry form works",
+      "week": "This Week"
+    },
+    {
+      "id": "103",
+      "column": "up-next",
+      "title": "Final review: Made bio + class description",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "Already on site, needs final approval",
+      "week": "This Week"
+    },
+    {
+      "id": "104",
+      "column": "up-next",
+      "title": "Mobile responsive check",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "Test site on phone",
+      "week": "This Week"
+    },
+    {
+      "id": "105",
+      "column": "up-next",
+      "title": "Research hotel pamphlet examples",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "What works for concierge handouts?",
+      "week": "This Week"
+    },
+    {
+      "id": "110",
+      "column": "up-next",
+      "title": "⚡ Finalize partnership agreement",
+      "owner": "Yuka",
+      "priority": "high",
+      "notes": "PRIORITY - 25/25/50 split, roles, responsibilities",
+      "week": "This Week"
+    },
+    {
+      "id": "111",
+      "column": "up-next",
+      "title": "Confirm meeting point for guests",
+      "owner": "Yuka",
+      "priority": "high",
+      "notes": "Ubud pickup location",
+      "week": "This Week"
+    },
+    {
+      "id": "112",
+      "column": "up-next",
+      "title": "Get transport/bus pricing",
+      "owner": "Yuka",
+      "priority": "high",
+      "notes": "14-15 person capacity, incl driver food, lead time",
+      "week": "This Week"
+    },
+    {
+      "id": "113",
+      "column": "up-next",
+      "title": "Start Instagram: 4 posts/week",
+      "owner": "Yuka",
+      "priority": "high",
+      "notes": "Starting Monday. Crosspost from ForageSF",
+      "week": "This Week"
+    },
+    {
+      "id": "114",
+      "column": "up-next",
+      "title": "Follow 10 Bali tourism accounts/day",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "Build Instagram presence",
+      "week": "This Week"
+    },
+    {
+      "id": "115",
+      "column": "up-next",
+      "title": "Print flyers for hotel visits",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "Simple one-pager with QR to book",
+      "week": "This Week"
+    },
+    {
+      "id": "120",
+      "column": "up-next",
+      "title": "Review participant waiver",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Legal review of drafted waiver",
+      "week": "This Week"
+    },
+    {
+      "id": "121",
+      "column": "up-next",
+      "title": "Set up Bokun → Google Calendar sync",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Native Bokun integration",
+      "week": "This Week"
+    },
+    {
+      "id": "122",
+      "column": "up-next",
+      "title": "Send ForageSF email announcement",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Announce Forage Bali to existing list",
+      "week": "This Week"
+    },
+    {
+      "id": "123",
+      "column": "up-next",
+      "title": "Coordinate with Yuka: what guests should bring/wear",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "For confirmation email",
+      "week": "This Week"
+    },
+    {
+      "id": "124",
+      "column": "up-next",
+      "title": "Create confirmation email template",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Include logistics: what to wear, meeting point, timeline",
+      "week": "This Week"
+    },
+    {
+      "id": "130",
+      "column": "up-next",
+      "title": "Fix WhatsApp number (deactivated)",
+      "owner": "Alex",
+      "priority": "high",
+      "notes": "Previous number got deactivated",
+      "week": "This Week"
+    },
+    {
+      "id": "131",
+      "column": "up-next",
+      "title": "SEO sweep (meta tags, OG images)",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "AI-first SEO optimization",
+      "week": "This Week"
+    },
+    {
+      "id": "132",
+      "column": "up-next",
+      "title": "Add Google Analytics",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Basic tracking",
+      "week": "This Week"
+    },
+    {
+      "id": "133",
+      "column": "up-next",
+      "title": "Hero video options",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Pan shot, people walking, woman cutting - optimize for fast load",
+      "week": "This Week"
+    },
+    {
+      "id": "200",
+      "column": "backlog",
+      "title": "Create brand guidelines doc",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "Colors, fonts, voice",
+      "week": "Month 1"
+    },
+    {
+      "id": "201",
+      "column": "backlog",
+      "title": "Create press packet",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "Story, photos, bios",
+      "week": "Month 1"
+    },
+    {
+      "id": "202",
+      "column": "backlog",
+      "title": "Write hotel pamphlet / concierge one-pager",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "PDF for hotel distribution",
+      "week": "Month 1"
+    },
+    {
+      "id": "203",
+      "column": "backlog",
+      "title": "Confirm what's included in class",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "Transport? Food? Drinks? Depends on bus pricing",
+      "week": "Month 1"
+    },
+    {
+      "id": "204",
+      "column": "backlog",
+      "title": "Build staff dashboard",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "Supabase + Vercel, mobile-first",
+      "week": "Month 2"
+    },
+    {
+      "id": "250",
+      "column": "backlog",
+      "title": "🎁 Create gift certificate / gifting flow",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "IMPORTANT: Website flow for buying classes as gifts",
+      "week": "Month 1"
+    },
+    {
+      "id": "251",
+      "column": "backlog",
+      "title": "🎁 Gift certificate design + email template",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "Beautiful PDF/email gift recipients receive",
+      "week": "Month 1"
+    },
+    {
+      "id": "210",
+      "column": "backlog",
+      "title": "Visit top hotels with flyers",
+      "owner": "Yuka",
+      "priority": "high",
+      "notes": "In-person relationship building",
+      "week": "Month 1"
+    },
+    {
+      "id": "211",
+      "column": "backlog",
+      "title": "Scout backup/additional teachers",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "For expansion",
+      "week": "Month 1-2"
+    },
+    {
+      "id": "212",
+      "column": "backlog",
+      "title": "Start bi-weekly blog posts",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "One plant + childhood memory + Balinese culture",
+      "week": "Month 1"
+    },
+    {
+      "id": "410",
+      "column": "backlog",
+      "title": "Second teacher interviews",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "For expansion",
+      "week": "Month 3"
+    },
+    {
+      "id": "411",
+      "column": "backlog",
+      "title": "Define teacher criteria",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "Knowledge, personality, language, availability",
+      "week": "Month 3"
+    },
+    {
+      "id": "412",
+      "column": "backlog",
+      "title": "Create teacher training/onboarding doc",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "For new teachers",
+      "week": "Month 3"
+    },
+    {
+      "id": "220",
+      "column": "backlog",
+      "title": "TripAdvisor listing",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "",
+      "week": "Month 1"
+    },
+    {
+      "id": "221",
+      "column": "backlog",
+      "title": "Google Business Profile setup",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Critical for local SEO",
+      "week": "Month 1"
+    },
+    {
+      "id": "222",
+      "column": "backlog",
+      "title": "Viator application",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "",
+      "week": "Month 1"
+    },
+    {
+      "id": "223",
+      "column": "backlog",
+      "title": "GetYourGuide application",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "",
+      "week": "Month 1"
+    },
+    {
+      "id": "224",
+      "column": "backlog",
+      "title": "Airbnb Experiences outreach",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Existing relationship",
+      "week": "Month 1"
+    },
+    {
+      "id": "225",
+      "column": "backlog",
+      "title": "Klook application",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Popular in Asia",
+      "week": "Month 1"
+    },
+    {
+      "id": "226",
+      "column": "backlog",
+      "title": "Research top 20 hotels + wellness retreats",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Create outreach list",
+      "week": "Month 1"
+    },
+    {
+      "id": "227",
+      "column": "backlog",
+      "title": "Research Bali wedding planners + event planners",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Work closely with Yuka",
+      "week": "Month 1"
+    },
+    {
+      "id": "228",
+      "column": "backlog",
+      "title": "🎁 Reach out to Zola",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Existing relationship - sell classes as wedding gifts?",
+      "week": "Month 1"
+    },
+    {
+      "id": "229",
+      "column": "backlog",
+      "title": "Create outreach templates",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Hotels, wedding planners, event planners",
+      "week": "Month 1"
+    },
+    {
+      "id": "230",
+      "column": "backlog",
+      "title": "Set up 5-step email nurture in Mailchimp",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Welcome → education → social proof → scarcity → nudge",
+      "week": "Month 1"
+    },
+    {
+      "id": "231",
+      "column": "backlog",
+      "title": "Set up weekly newsletter",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Upcoming classes + wild food info",
+      "week": "Month 2"
+    },
+    {
+      "id": "232",
+      "column": "backlog",
+      "title": "Set up bi-weekly Yuka + Carla calls",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Coordinate on partnerships",
+      "week": "Month 1"
+    },
+    {
+      "id": "252",
+      "column": "backlog",
+      "title": "🎁 Gift integration with Zola/registry sites",
+      "owner": "Carla",
+      "priority": "high",
+      "notes": "Wedding registry integration",
+      "week": "Month 1"
+    },
+    {
+      "id": "253",
+      "column": "backlog",
+      "title": "🎁 Gift redemption system in Bokun",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "How do gift recipients redeem? Voucher codes?",
+      "week": "Month 2"
+    },
+    {
+      "id": "420",
+      "column": "backlog",
+      "title": "QR code review cards for guests",
+      "owner": "Carla",
+      "priority": "medium",
+      "notes": "Hand out at end of experience",
+      "week": "Month 2"
+    },
+    {
+      "id": "421",
+      "column": "backlog",
+      "title": "Sign up for HARO (Featured.com)",
+      "owner": "Carla",
+      "priority": "low",
+      "notes": "Free journalist queries",
+      "week": "Month 2"
+    },
+    {
+      "id": "422",
+      "column": "backlog",
+      "title": "List Bali food/travel bloggers",
+      "owner": "Carla",
+      "priority": "low",
+      "notes": "For influencer outreach",
+      "week": "Month 2"
+    },
+    {
+      "id": "423",
+      "column": "backlog",
+      "title": "Influencer hosting plan",
+      "owner": "Carla",
+      "priority": "low",
+      "notes": "Comp 2-3 classes/month for coverage",
+      "week": "Month 2"
+    },
+    {
+      "id": "240",
+      "column": "backlog",
+      "title": "Get Bokun API keys",
+      "owner": "Alex",
+      "priority": "high",
+      "notes": "For Noko integration",
+      "week": "Month 1"
+    },
+    {
+      "id": "241",
+      "column": "backlog",
+      "title": "Set up Google Drive master folder",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Team folder, get OAuth for Noko",
+      "week": "Month 1"
+    },
+    {
+      "id": "242",
+      "column": "backlog",
+      "title": "Create FAQ knowledge base for Noko",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "What to wear, location, cancellation, etc.",
+      "week": "Month 1"
+    },
+    {
+      "id": "243",
+      "column": "backlog",
+      "title": "Map full customer journey",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Inquiry → booking → pre-trip → experience → follow-up",
+      "week": "Month 1"
+    },
+    {
+      "id": "244",
+      "column": "backlog",
+      "title": "Set up Forage Bali email OAuth for Noko",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Send/receive emails",
+      "week": "Month 1"
+    },
+    {
+      "id": "245",
+      "column": "backlog",
+      "title": "Connect Google Business for reviews",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Noko can see/draft responses",
+      "week": "Month 1"
+    },
+    {
+      "id": "246",
+      "column": "backlog",
+      "title": "Write Noko brand voice guidelines",
+      "owner": "Alex",
+      "priority": "high",
+      "notes": "Strict guidelines Noko follows exactly",
+      "week": "Month 1"
+    },
+    {
+      "id": "300",
+      "column": "backlog",
+      "title": "Connect Noko to Bokun API",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Read availability, bookings, guest info",
+      "week": "Month 2"
+    },
+    {
+      "id": "301",
+      "column": "backlog",
+      "title": "Connect Noko to Google Calendar",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "",
+      "week": "Month 2"
+    },
+    {
+      "id": "303",
+      "column": "backlog",
+      "title": "Connect Noko to WhatsApp",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Start with OpenClaw connection",
+      "week": "Month 2"
+    },
+    {
+      "id": "304",
+      "column": "backlog",
+      "title": "Noko: auto booking confirmations",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "",
+      "week": "Month 2"
+    },
+    {
+      "id": "305",
+      "column": "backlog",
+      "title": "Noko: pre-trip reminders (1 week + 1 day)",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "",
+      "week": "Month 2"
+    },
+    {
+      "id": "306",
+      "column": "backlog",
+      "title": "Test Noko on 10 sample inquiries",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "",
+      "week": "Month 2"
+    },
+    {
+      "id": "307",
+      "column": "backlog",
+      "title": "Set up Noko escalation flow",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "When to ping Yuka/team",
+      "week": "Month 2"
+    },
+    {
+      "id": "308",
+      "column": "backlog",
+      "title": "Noko: post-trip thank you + photos",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Staff drops photos in Slack, Noko creates email",
+      "week": "Month 3"
+    },
+    {
+      "id": "309",
+      "column": "backlog",
+      "title": "Noko: review requests (day 2 + 7)",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "",
+      "week": "Month 3"
+    },
+    {
+      "id": "310",
+      "column": "backlog",
+      "title": "Noko: weekly business report to Slack",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Revenue, bookings, reviews, blind spots",
+      "week": "Month 3"
+    },
+    {
+      "id": "311",
+      "column": "backlog",
+      "title": "Noko: weekly QA check",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Reviews visible? Site working? Links? Booking flow?",
+      "week": "Month 3"
+    },
+    {
+      "id": "312",
+      "column": "backlog",
+      "title": "Noko: customer enrichment research",
+      "owner": "Alex",
+      "priority": "low",
+      "notes": "LinkedIn lookup, flag VIPs",
+      "week": "Month 3"
+    },
+    {
+      "id": "313",
+      "column": "backlog",
+      "title": "Noko: Instagram content calendar",
+      "owner": "Alex",
+      "priority": "low",
+      "notes": "Draft month of content, staff reviews",
+      "week": "Month 2-3"
+    },
+    {
+      "id": "314",
+      "column": "backlog",
+      "title": "Noko: daily digest to staff",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Morning summary of WhatsApp conversations",
+      "week": "Month 2"
+    },
+    {
+      "id": "500",
+      "column": "backlog",
+      "title": "WebMCP protocol setup",
+      "owner": "Alex",
+      "priority": "low",
+      "notes": "Make site agent-friendly for AI search",
+      "week": "Month 3+"
+    },
+    {
+      "id": "502",
+      "column": "backlog",
+      "title": "GDPR/privacy compliance",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "Consent checkbox, privacy policy",
+      "week": "Month 1"
+    },
+    {
+      "id": "400",
+      "column": "backlog",
+      "title": "Finalize teacher agreement with Made",
+      "owner": "Iso",
+      "priority": "medium",
+      "notes": "After first class",
+      "week": "After April 24"
+    },
+    {
+      "id": "401",
+      "column": "backlog",
+      "title": "Research liability insurance",
+      "owner": "Alex",
+      "priority": "low",
+      "notes": "~$500-2k/year",
+      "week": "After April 24"
+    },
+    {
+      "id": "402",
+      "column": "backlog",
+      "title": "Confirm tax obligations",
+      "owner": "Iso",
+      "priority": "low",
+      "notes": "10% local tax",
+      "week": "After April 24"
+    },
+    {
+      "id": "403",
+      "column": "backlog",
+      "title": "Post-class debrief",
+      "owner": "All",
+      "priority": "high",
+      "notes": "What worked, what didn't",
+      "week": "After April 24"
+    },
+    {
+      "id": "501",
+      "column": "backlog",
+      "title": "E-commerce: sell foraged products",
+      "owner": "Iso",
+      "priority": "low",
+      "notes": "Source local products, sell on website",
+      "week": "Month 3+"
+    }
+  ],
+  "lastUpdated": "2026-02-18T05:30:00.000Z"
+}
