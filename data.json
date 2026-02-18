@@ -1,9 +1,9 @@
 {
   "columns": [
-    { "id": "up-next", "title": "Up Next (This Week)" },
+    { "id": "backlog", "title": "Backlog" },
+    { "id": "up-next", "title": "Up Next" },
     { "id": "in-progress", "title": "In Progress" },
     { "id": "blocked", "title": "Blocked" },
-    { "id": "backlog", "title": "Backlog" },
     { "id": "done", "title": "Done" }
   ],
   "owners": [

@@ -27,6 +27,25 @@
       --gift: #f0b429;
     }
     
+    [data-theme="light"] {
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --surface-elevated: #f6f8fa;
+      --border: #d0d7de;
+      --border-light: #e8ebef;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --text-faint: #8c959f;
+      --iso: #4d7c3a;
+      --yuka: #c55e25;
+      --carla: #5a6d9e;
+      --alex: #7857a5;
+      --priority-high: #d1242f;
+      --priority-medium: #9a6700;
+      --accent: #0969da;
+      --gift: #bf8700;
+    }
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
@@ -34,6 +53,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
     }
     
     .header {
@@ -43,6 +63,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: background 0.2s;
     }
     
     .header-row {
@@ -63,6 +84,30 @@
     .logo-icon { font-size: 24px; }
     .logo h1 { font-size: 18px; font-weight: 600; }
     .logo span { font-size: 12px; color: var(--text-muted); margin-left: 8px; }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    /* Theme Toggle */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    
+    .theme-toggle:hover { border-color: var(--accent); color: var(--text); }
     
     /* Tabs */
     .tabs {
@@ -109,7 +154,7 @@
     }
     
     .owner-pill:hover { opacity: 0.8; }
-    .owner-pill.active { border-color: white; }
+    .owner-pill.active { border-color: var(--text); }
     .owner-pill.all { background: var(--surface-elevated); color: var(--text-muted); }
     .owner-pill.iso { background: rgba(123,158,107,0.2); color: var(--iso); }
     .owner-pill.yuka { background: rgba(224,122,61,0.2); color: var(--yuka); }
@@ -142,6 +187,7 @@
       display: flex;
       flex-direction: column;
       max-height: calc(100vh - 140px);
+      transition: background 0.2s;
     }
     
     @media (max-width: 600px) { .column { max-height: none; } }
@@ -168,9 +214,10 @@
       border-radius: 50%;
     }
     
+    .column-dot.backlog { background: #8b949e; }
     .column-dot.up-next { background: #58a6ff; }
     .column-dot.in-progress { background: #a371f7; }
-    .column-dot.backlog { background: #8b949e; }
+    .column-dot.blocked { background: #f85149; }
     .column-dot.done { background: #3fb950; }
     
     .column-count {
@@ -340,9 +387,15 @@
         <h1>Forage Bali</h1>
         <span>First class: April 24</span>
       </div>
-      <div class="tabs">
-        <button class="tab active" data-view="overview">Overview</button>
-        <button class="tab" data-view="board">Board</button>
+      <div class="header-actions">
+        <div class="tabs">
+          <button class="tab active" data-view="overview">Overview</button>
+          <button class="tab" data-view="board">Board</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">
+          <span class="theme-icon">☀️</span>
+          <span class="theme-label">Light</span>
+        </button>
       </div>
     </div>
     <div class="filters-row">
@@ -357,6 +410,28 @@
     let data = null;
     let filters = { owner: 'all' };
     let currentView = 'overview';
+    
+    // Theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeButton(savedTheme);
+    
+    function updateThemeButton(theme) {
+      const btn = document.getElementById('themeToggle');
+      if (theme === 'light') {
+        btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">Dark</span>';
+      } else {
+        btn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-label">Light</span>';
+      }
+    }
+    
+    document.getElementById('themeToggle').onclick = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeButton(next);
+    };
     
     async function loadData() {
       const res = await fetch('data.json');
@@ -410,9 +485,10 @@
     
     function renderCard(c, showStatus = false) {
       const statusMap = {
+        'backlog': 'Backlog',
         'up-next': 'Up Next',
         'in-progress': 'In Progress',
-        'backlog': 'Backlog',
+        'blocked': 'Blocked',
         'done': 'Done'
       };
       return `
@@ -470,10 +546,18 @@
       document.getElementById('overview').innerHTML = html || '<div class="empty-state">No tasks</div>';
     }
     
+    // Column order: Backlog first, then flow columns
+    const columnOrder = ['backlog', 'up-next', 'in-progress', 'blocked', 'done'];
+    
     function renderBoard() {
       const filtered = filterCards(data.cards);
       
-      document.getElementById('board').innerHTML = data.columns.map(col => {
+      // Sort columns: backlog first
+      const sortedColumns = [...data.columns].sort((a, b) => {
+        return columnOrder.indexOf(a.id) - columnOrder.indexOf(b.id);
+      });
+      
+      document.getElementById('board').innerHTML = sortedColumns.map(col => {
         const cards = filtered.filter(c => c.column === col.id);
         return `
           <div class="column">
