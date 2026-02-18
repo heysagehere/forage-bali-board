@@ -1,5 +1,6 @@
 {
   "columns": [
+    { "id": "ideas", "title": "💡 Ideas" },
     { "id": "backlog", "title": "Backlog" },
     { "id": "up-next", "title": "Up Next" },
     { "id": "in-progress", "title": "In Progress" },
@@ -732,13 +733,28 @@
       "week": "Month 3+"
     },
     {
-      "id": "503",
-      "column": "backlog",
-      "title": "Research luxury private experience pricing",
-      "owner": "Alex",
+      "id": "600",
+      "column": "ideas",
+      "title": "🌟 Luxury Private Experience tier",
+      "owner": "Iso",
+      "priority": "high",
+      "notes": "RESEARCH DONE: No luxury foraging in Bali — we'd own this niche. Pricing: $150-175/pp (signature), $200-250/pp (premium w/ ceremonies), $300+/pp (full day + private dinner). Target: villa renters, Four Seasons/COMO guests, corporate retreats. See full report in ForAlex."
+    },
+    {
+      "id": "601",
+      "column": "ideas",
+      "title": "Corporate retreat packages",
+      "owner": "Yuka",
       "priority": "medium",
-      "notes": "What do high-end Bali experiences charge? Make sure we're not leaving money on the table for private events.",
-      "week": "Month 1"
+      "notes": "Team building via foraging. Companies pay premium for unique offsite activities."
+    },
+    {
+      "id": "602",
+      "column": "ideas",
+      "title": "Honeymoon/couples experience",
+      "owner": "Yuka",
+      "priority": "medium",
+      "notes": "Private foraging + romantic jungle dinner. Wedding planner partnerships."
     }
   ],
   "lastUpdated": "2026-02-18T07:00:00.000Z"

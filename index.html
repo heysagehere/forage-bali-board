@@ -214,6 +214,7 @@
       border-radius: 50%;
     }
     
+    .column-dot.ideas { background: #f0b429; }
     .column-dot.backlog { background: #8b949e; }
     .column-dot.up-next { background: #58a6ff; }
     .column-dot.in-progress { background: #a371f7; }
@@ -546,8 +547,8 @@
       document.getElementById('overview').innerHTML = html || '<div class="empty-state">No tasks</div>';
     }
     
-    // Column order: Backlog first, then flow columns
-    const columnOrder = ['backlog', 'up-next', 'in-progress', 'blocked', 'done'];
+    // Column order: Ideas and Backlog first, then flow columns
+    const columnOrder = ['ideas', 'backlog', 'up-next', 'in-progress', 'blocked', 'done'];
     
     function renderBoard() {
       const filtered = filterCards(data.cards);
