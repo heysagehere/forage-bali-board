@@ -730,6 +730,15 @@
       "priority": "low",
       "notes": "Source local products, sell on website",
       "week": "Month 3+"
+    },
+    {
+      "id": "503",
+      "column": "backlog",
+      "title": "Research luxury private experience pricing",
+      "owner": "Alex",
+      "priority": "medium",
+      "notes": "What do high-end Bali experiences charge? Make sure we're not leaving money on the table for private events.",
+      "week": "Month 1"
     }
   ],
   "lastUpdated": "2026-02-18T07:00:00.000Z"
