@@ -1,8 +1,8 @@
 {
   "columns": [
-    { "id": "backlog", "title": "Backlog" },
     { "id": "up-next", "title": "Up Next" },
     { "id": "in-progress", "title": "In Progress" },
+    { "id": "backlog", "title": "Backlog" },
     { "id": "blocked", "title": "Blocked" },
     { "id": "done", "title": "Done" }
   ],
